@@ -9,87 +9,189 @@
       content="Karl Johnson's submission for PS 2025-RTT-30 Project 1: HTML, CSS, and JavaScript." />
     <title>Project 1: HTML, CSS, and JavaScript</title>
     <link rel="icon" href="./images/favicon-32x32.png" type="image/png" />
-    <link rel="stylesheet" href="./styles/css/custom.css">
+    <link rel="stylesheet" href="./styles/css/custom.css" />
     <script type="module" src="./dist/index.js" defer></script>
   </head>
   <body>
     <header>
-      <h1>Project 1: HTML, CSS, and JavaScript</h1>
-      <button>[moon icon] Dark Mode</button>
+      <nav class="navbar px-3 py-3 border">
+        <a href="#" class="navbar-brand fw-bold">Where in the world?</a>
+        <button class="btn btn-outline-tertiary">Dark Mode</button>
+      </nav>
     </header>
     <main>
-      <section>
-        <div><input type="text" placeholder="[magnifying glass icon] Search for a country..." /></div>
-        <div>
-          <label for="region">Filter by Region</label>
-          <select id="region">
-            <option value="africa">Africa</option>
-            <option value="americas">Americas</option>
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-            <option value="oceania">Oceania</option>
-          </select>
+      <section class="container-fluid">
+        <div class="mx-3 my-4">
+          <div class="row">
+            <div class="col">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search for a country..." />
+                </div>
+                <div>
+                  <select id="region" class="form-select">
+                    <option selected>Filter by Region</option>
+                    <option value="africa">Africa</option>
+                    <option value="americas">Americas</option>
+                    <option value="asia">Asia</option>
+                    <option value="europe">Europe</option>
+                    <option value="oceania">Oceania</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      <section>
-        <div>
-          <h2>Germany</h2>
-          <ul>
-            <li><strong>Population:</strong> 81,770,900</li>
-            <li><strong>Region:</strong> Europe</li>
-            <li><strong>Capital:</strong> Berlin</li>
-          </ul>
-        </div>
-        <div>
-          <h2>United States of America</h2>
-          <ul>
-            <li><strong>Population:</strong> 323,947,000</li>
-            <li><strong>Region:</strong> Americas</li>
-            <li><strong>Capital:</strong> Washington, D.C.</li>
-          </ul>
-        </div>
-        <div>
-          <h2>Brazil</h2>
-          <ul>
-            <li><strong>Population:</strong> 206,135,893</li>
-            <li><strong>Region:</strong> Americas</li>
-            <li><strong>Capital:</strong> Brasilia</li>
-          </ul>
-        </div>
-        <h2>Iceland</h2>
-          <ul>
-            <li><strong>Population:</strong> 334,300</li>
-            <li><strong>Region:</strong> Europe</li>
-            <li><strong>Capital:</strong> Reykjavik</li>
-          </ul>
-        </div>
-        <h2>Afghanistan</h2>
-          <ul>
-            <li><strong>Population:</strong> 27,657,145</li>
-            <li><strong>Region:</strong> Asia</li>
-            <li><strong>Capital:</strong> Kabul</li>
-          </ul>
-        </div>
-        <h2>Aland Islands</h2>
-          <ul>
-            <li><strong>Population:</strong> 28,875</li>
-            <li><strong>Region:</strong> Europe</li>
-            <li><strong>Capital:</strong> Mariehamn</li>
-          </ul>
-        </div>
-        <h2>Albania</h2>
-          <ul>
-            <li><strong>Population:</strong> 2,886,026</li>
-            <li><strong>Region:</strong> Europe</li>
-            <li><strong>Capital:</strong> Tirana</li>
-          </ul>
-        </div>
-        <h2>Algeria</h2>
-          <ul>
-            <li><strong>Population:</strong> 40,400,000</li>
-            <li><strong>Region:</strong> Africa</li>
-            <li><strong>Capital:</strong> Algiers</li>
-          </ul>
+      <section class="container-fluid">
+        <div class="mx-3">
+          <div class="row">
+            <div
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card">
+                <img
+                  src="https://placehold.co/400x200"
+                  class="card-img-top"
+                  alt />
+                <div class="card-body">
+                  <h2 class="card-title fs-5 fw-bold py-2">Germany</h2>
+                  <div class="card-text">
+                    <ul class="list-unstyled">
+                      <li><strong>Population:</strong> 81,770,900</li>
+                      <li><strong>Region:</strong> Europe</li>
+                      <li><strong>Capital:</strong> Berlin</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card">
+                <img
+                  src="https://placehold.co/400x200"
+                  class="card-img-top"
+                  alt />
+                <div class="card-body">
+                  <h2 class="card-title fs-5 fw-bold py-2">United States of America</h2>
+                  <div class="card-text">
+                    <ul class="list-unstyled">
+                      <li><strong>Population:</strong> 323,947,000</li>
+                      <li><strong>Region:</strong> Americas</li>
+                      <li><strong>Capital:</strong> Washington, D.C.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card">
+                <img src="https://placehold.co/400x200" class="card-img-top"
+                  alt />
+                <div class="card-body">
+                  <h2 class="card-title fs-5 fw-bold py-2">Brazil</h2>
+                  <div class="card-text">
+                    <ul class="list-unstyled">
+                      <li><strong>Population:</strong> 206,135,893</li>
+                      <li><strong>Region:</strong> Americas</li>
+                      <li><strong>Capital:</strong> Brasilia</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card">
+                <img src="https://placehold.co/400x200" class="card-img-top"
+                  alt />
+                <div class="card-body">
+                  <h2 class="card-title fs-5 fw-bold py-2">Iceland</h2>
+                  <div class="card-text">
+                    <ul class="list-unstyled">
+                      <li><strong>Population:</strong> 334,300</li>
+                      <li><strong>Region:</strong> Europe</li>
+                      <li><strong>Capital:</strong> Reykjavik</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card">
+                <img src="https://placehold.co/400x200" class="card-img-top"
+                  alt />
+                <div class="card-body">
+                  <h2 class="card-title fs-5 fw-bold py-2">Afghanistan</h2>
+                  <div class="card-text">
+                    <ul class="list-unstyled">
+                      <li><strong>Population:</strong> 27,657,145</li>
+                      <li><strong>Region:</strong> Asia</li>
+                      <li><strong>Capital:</strong> Kabul</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card">
+                <img src="https://placehold.co/400x200" class="card-img-top"
+                  alt />
+                <div class="card-body">
+                  <h2 class="card-title fs-5 fw-bold py-2">Aland Islands</h2>
+                  <div class="card-text">
+                    <ul class="list-unstyled">
+                      <li><strong>Population:</strong> 28,875</li>
+                      <li><strong>Region:</strong> Europe</li>
+                      <li><strong>Capital:</strong> Mariehamn</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card">
+                <img src="https://placehold.co/400x200" class="card-img-top"
+                  alt />
+                <div class="card-body">
+                  <h2 class="card-title fs-5 fw-bold py-2">Albania</h2>
+                  <div class="card-text">
+                    <ul class="list-unstyled">
+                      <li><strong>Population:</strong> 2,886,026</li>
+                      <li><strong>Region:</strong> Europe</li>
+                      <li><strong>Capital:</strong> Tirana</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card">
+                <img src="https://placehold.co/400x200" class="card-img-top"
+                  alt />
+                <div class="card-body">
+                  <h2 class="card-title fs-5 fw-bold py-2">Algeria</h2>
+                  <div class="card-text">
+                    <ul class="list-unstyled">
+                      <li><strong>Population:</strong> 40,400,000</li>
+                      <li><strong>Region:</strong> Africa</li>
+                      <li><strong>Capital:</strong> Algiers</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
