@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint ./src",
-    "build": "npx tsc"
+    "build": "npx tsc",
+    "sass-dev": "sass --watch --update --style=expanded styles/scss:styles/css",
+    "sass-prod": "sass --no-source-map --style=compressed styles/scss:styles/css"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "@eslint/js": "^9.31.0",
     "@types/node": "^24.0.14",
     "eslint": "^9.31.0",
+    "sass": "^1.89.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.37.0"
   }
