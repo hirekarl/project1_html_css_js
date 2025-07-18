@@ -14,3 +14,5 @@
 - Set up repo, submitted repo link to Canvas.
 - Researched project options; planning on implementing Option 3: **REST Countries API with Color Theme Switcher**.
 - Studied [REST Countries API documentation](https://restcountries.com/), [REST Countries API field reference](https://gitlab.com/restcountries/restcountries/-/blob/master/FIELDS.md) and [@yusifaliyevpro/countries](https://www.npmjs.com/package/@yusifaliyevpro/countries).
+- Set up skeletons for TypeScript scripts.
+- Set up configurations for ESLint, TSC, and NPM.
