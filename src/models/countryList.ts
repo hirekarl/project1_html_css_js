@@ -1,20 +1,32 @@
 import { Country } from "./Country.js"
 import { CountryDetail } from "./CountryDetail.js"
 
+const countriesContainer = document.getElementById("countries-container")
+
 interface CountryListInterface {
+  domElement: HTMLDivElement
   countries: Country[]
   sort(): void
+  display(): void
   addCountry(country: Country): void
   addCountryDetail(countryDetail: CountryDetail): void
   getCountryByCCA3(cca3: string): Country
 }
 
 export const countryList: CountryListInterface = {
+  domElement: (countriesContainer as HTMLDivElement),
   countries: [],
   sort: function (): void {
     this.countries.sort((a, b) =>
       a.getCommonName().localeCompare(b.getCommonName())
     )
+  },
+  display: function(): void {
+    this.sort()
+    this.domElement.innerText = ""
+    const countriesDocFrag = new DocumentFragment()
+    this.countries.forEach((country) => countriesDocFrag.appendChild(country.getDomElement()))
+    this.domElement.appendChild(countriesDocFrag)
   },
   addCountry: function (country: Country): void {
     this.countries.push(country)

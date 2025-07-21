@@ -18,12 +18,11 @@ async function populateCountries(): Promise<void> {
     )
     countryList.addCountry(thisCountry)
   }
-
-  countryList.sort()
 }
 
 async function main() {
   await populateCountries()
+  countryList.display()
 
   // console.log(
   //   countryList.countries.map((country) => country.getCommonName()).join(", ")

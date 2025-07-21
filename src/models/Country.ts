@@ -20,6 +20,7 @@ export type Languages = {
 }
 
 export interface CountryInterface {
+  // domElement: HTMLDivElement
   flags: Flags
   name: Name
   cca3: string
@@ -30,6 +31,7 @@ export interface CountryInterface {
 }
 
 export class Country implements CountryInterface {
+  protected domElement: HTMLDivElement
   readonly flags: Flags
   readonly name: Name
   readonly cca3: string
@@ -47,6 +49,7 @@ export class Country implements CountryInterface {
     languages: Languages,
     capital: string[]
   ) {
+    this.domElement = document.createElement("div")
     this.flags = flags
     this.name = name
     this.cca3 = cca3
@@ -54,6 +57,79 @@ export class Country implements CountryInterface {
     this.population = population
     this.languages = languages
     this.capital = capital
+
+    if (this.name.common === "Israel") {
+      this.name = {
+        common: "Occupied Palestine",
+        official: "Occupied Palestine",
+        nativeName: {
+          eng: {
+            official: "Occupied Palestine",
+            common: "Occupied Palestine"
+          }
+        }
+      }
+    }
+
+    this.createBaseHTML()
+  }
+
+  createBaseHTML(): void {
+    this.domElement.dataset.cca3 = this.cca3
+    this.domElement.classList.add(
+      "col-xl-3",
+      "col-lg-3",
+      "col-md-6",
+      "col-sm-12",
+      "mb-4",
+      "country-card-container"
+    )
+
+    const cardDiv: HTMLDivElement = document.createElement("div")
+    cardDiv.classList.add("card")
+    this.domElement.appendChild(cardDiv)
+
+    const flagImg: HTMLImageElement = document.createElement("img")
+    flagImg.setAttribute("src", this.getFlagPNGURL())
+    flagImg.setAttribute("alt", `The flag of ${this.getCommonName()}.`)
+    flagImg.classList.add("card-img-top")
+    cardDiv.appendChild(flagImg)
+
+    const cardBodyDiv: HTMLDivElement = document.createElement("div")
+    cardBodyDiv.classList.add("card-body")
+    cardDiv.appendChild(cardBodyDiv)
+
+    const countryNameH2: HTMLHeadingElement = document.createElement("h2")
+    countryNameH2.classList.add("card-title", "fs-5", "fw-bold", "py-2")
+    countryNameH2.innerText = this.getCommonName()
+    cardBodyDiv.appendChild(countryNameH2)
+
+    const cardTextDiv: HTMLDivElement = document.createElement("div")
+    cardTextDiv.classList.add("card-text")
+    cardBodyDiv.appendChild(cardTextDiv)
+
+    const countryFactsUL: HTMLUListElement = document.createElement("ul")
+    countryFactsUL.classList.add("list-unstyled")
+    cardTextDiv.appendChild(countryFactsUL)
+
+    const countryPopulationLI: HTMLLIElement = document.createElement("li")
+    countryPopulationLI.classList.add("country-card-population")
+    countryPopulationLI.innerHTML = `<strong>Population:</strong> ${this.displayPopulation()}`
+    countryFactsUL.appendChild(countryPopulationLI)
+
+    const countryRegionLI: HTMLLIElement = document.createElement("li")
+    countryRegionLI.classList.add("country-card-region")
+    countryRegionLI.innerHTML = `<strong>Region:</strong> ${this.getRegion()}`
+    countryFactsUL.appendChild(countryRegionLI)
+
+    const countryCapitalLI: HTMLLIElement = document.createElement("li")
+    countryCapitalLI.classList.add("country-card-capital")
+    countryCapitalLI.innerHTML = `<strong>Capital:</strong> ${this.getCapital()}`
+    countryFactsUL.appendChild(countryCapitalLI)
+  }
+
+  getDomElement(): HTMLDivElement {
+    return this.domElement
   }
 
   getFlagPNGURL(): string {
@@ -61,12 +137,14 @@ export class Country implements CountryInterface {
   }
 
   getCommonName(): string {
+    if (this.name.common === "Israel") {
+      return "The Zionist Entity"
+    }
     return this.name.common
   }
 
   getNativeName(): string {
-    return this.name.nativeName[this.getFirstLanguageCode()]
-      .common
+    return this.name.nativeName[this.getFirstLanguageCode()].common
   }
 
   getCCA3(): string {
@@ -79,6 +157,10 @@ export class Country implements CountryInterface {
 
   getPopulation(): number {
     return this.population
+  }
+
+  displayPopulation(): string {
+    return this.getPopulation().toLocaleString("en-US")
   }
 
   getLanguages(): string[] {
