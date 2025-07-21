@@ -54,7 +54,7 @@ async function main() {
     `Capital: ${thisCountryDetail.getCapital()}\n` +
     `TLD: ${thisCountryDetail.getTLD()}\n` +
     `Currencies: ${thisCountryDetail.getCurrencies()}\n` +
-    `Borders: ${borderCountryNames}\n`
+    `Borders: ${borderCountryNames.length > 0 ? borderCountryNames : "N/A"}\n`
 
   console.log(message)
 }
