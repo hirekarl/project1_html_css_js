@@ -23,17 +23,17 @@ async function main() {
   const totalCountries = allCountries.length
   const randomCountryIndex = Math.ceil(Math.random() * totalCountries + 1)
 
-  const firstCountry = allCountries[randomCountryIndex]
-  const countryDetail = await getCountryDetail(firstCountry)
+  const randomCountry = allCountries[randomCountryIndex]
+  const countryDetail = await getCountryDetail(randomCountry)
 
   const thisCountryDetail: CountryDetail = new CountryDetail(
-    firstCountry.flags,
-    firstCountry.name,
-    firstCountry.cca3,
-    firstCountry.region,
-    firstCountry.population,
-    firstCountry.languages,
-    firstCountry.capital,
+    randomCountry.flags,
+    randomCountry.name,
+    randomCountry.cca3,
+    randomCountry.region,
+    randomCountry.population,
+    randomCountry.languages,
+    randomCountry.capital,
     countryDetail.tld,
     countryDetail.currencies,
     countryDetail.subregion,
