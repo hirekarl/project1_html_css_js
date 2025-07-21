@@ -86,7 +86,7 @@ export class Country implements CountryInterface {
     )
 
     const cardDiv: HTMLDivElement = document.createElement("div")
-    cardDiv.classList.add("card")
+    cardDiv.classList.add("card", "shadow")
     this.domElement.appendChild(cardDiv)
 
     const flagImg: HTMLImageElement = document.createElement("img")
