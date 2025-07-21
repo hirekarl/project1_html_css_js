@@ -1,4 +1,4 @@
-import { Name, Flags, Languages, Country } from "./Country"
+import { Name, Flags, Languages, Country } from "./Country.js"
 
 export type Currencies = {
   [key: string]: { name: string; symbol: string }

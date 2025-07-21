@@ -23,6 +23,7 @@ export interface CountryInterface {
   flags: Flags
   name: Name
   cca3: string
+  region: string
   population: number
   languages: Languages
   capital: string[]
