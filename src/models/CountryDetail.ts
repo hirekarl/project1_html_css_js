@@ -1,4 +1,5 @@
 import { Name, Flags, Languages, Country } from "./Country.js"
+import { getCountryNameByCCA3 } from "../services/apiService.js";
 
 export type Currencies = {
   [key: string]: { name: string; symbol: string }
@@ -37,19 +38,28 @@ export class CountryDetail extends Country implements CountryDetailInterface {
     this.borders = borders
   }
 
-  getTLD() {
+  getTLD(): string[] {
     return this.tld
   }
 
-  getCurrencies() {
-    return this.currencies
+  getCurrencies(): string[] {
+    const currenciesArray = []
+    for (const currency of Object.values(this.currencies)) {
+      currenciesArray.push(currency.name)
+    }
+    return currenciesArray
   }
 
-  getSubregion() {
+  getSubregion(): string {
     return this.subregion
   }
 
-  getBorders() {
-    return this.borders
+  async getBorderCountryNames(): Promise<string[]> {
+    const borderCountryNames = []
+    for (const cca3 of this.borders) {
+      const countryName = await getCountryNameByCCA3(cca3)
+      borderCountryNames.push(countryName)
+    }
+    return borderCountryNames
   }
 }

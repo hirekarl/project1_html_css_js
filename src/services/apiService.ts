@@ -11,14 +11,9 @@ const BASE_FIELDS: string[] = [
   "region",
   "population",
   "languages",
-  "capital"
+  "capital",
 ]
-const DETAIL_FIELDS: string[] = [
-  "tld",
-  "currencies",
-  "subregion",
-  "borders"
-]
+const DETAIL_FIELDS: string[] = ["tld", "currencies", "subregion", "borders"]
 
 function concatFields(fields: string[]): string {
   return fields.join(",")
@@ -31,13 +26,19 @@ async function getAllCountries(): Promise<CountryInterface[]> {
   return data
 }
 
-async function getCountryDetail(country: Country): Promise<CountryDetailInterface> {
+async function getCountryDetail(
+  country: Country
+): Promise<CountryDetailInterface> {
   const fields = concatFields(DETAIL_FIELDS)
-  const response = await fetch(
-    `${DETAIL_URL}/${country.cca3}?fields=${fields}`
-  )
+  const response = await fetch(`${DETAIL_URL}/${country.cca3}?fields=${fields}`)
   const data: CountryDetailInterface = await response.json()
   return data
 }
 
-export { getAllCountries, getCountryDetail }
+async function getCountryNameByCCA3(cca3: string): Promise<string> {
+  const response = await fetch(`${DETAIL_URL}/${cca3}?fields=name`)
+  const data = await response.json()
+  return data.name.common
+}
+
+export { getAllCountries, getCountryDetail, getCountryNameByCCA3 }

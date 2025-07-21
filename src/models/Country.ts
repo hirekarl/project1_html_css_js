@@ -37,7 +37,7 @@ export class Country implements CountryInterface {
   readonly population: number
   readonly languages: Languages
   readonly capital: string[]
-  
+
   constructor(
     flags: Flags,
     name: Name,
@@ -50,37 +50,46 @@ export class Country implements CountryInterface {
     this.flags = flags
     this.name = name
     this.cca3 = cca3
-    this.region = region 
+    this.region = region
     this.population = population
     this.languages = languages
     this.capital = capital
   }
 
-  getFlagPNGURL() {
+  getFlagPNGURL(): string {
     return this.flags.png
   }
 
-  getCommonName() {
+  getCommonName(): string {
     return this.name.common
   }
 
-  getCCA3() {
+  getNativeName(): string {
+    return this.name.nativeName[this.getFirstLanguageCode()]
+      .common
+  }
+
+  getCCA3(): string {
     return this.cca3
   }
 
-  getRegion() {
+  getRegion(): string {
     return this.region
   }
 
-  getPopulation() {
+  getPopulation(): number {
     return this.population
   }
 
-  getLanguages() {
+  getLanguages(): string[] {
     return Object.values(this.languages)
   }
 
-  getCapital() {
+  getFirstLanguageCode(): string {
+    return Object.keys(this.languages)[0]
+  }
+
+  getCapital(): string {
     return this.capital[0]
   }
 }

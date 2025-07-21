@@ -40,9 +40,23 @@ async function main() {
     countryDetail.borders
   )
 
-  console.log(
-    `The people in ${thisCountryDetail.getCommonName()} speak ${thisCountryDetail.getLanguages()}.`
-  )
+  const borderCountryNames = await thisCountryDetail.getBorderCountryNames()
+
+  const message =
+    `Information for ${thisCountryDetail.getCommonName()}:\n` +
+    `Native Name: ${thisCountryDetail.getNativeName()}\n` +
+    `Flag URL: ${thisCountryDetail.getFlagPNGURL()}\n` +
+    `CCA3: ${thisCountryDetail.getCCA3()}\n` +
+    `Region: ${thisCountryDetail.getRegion()}\n` +
+    `Subregion: ${thisCountryDetail.getSubregion()}\n` +
+    `Population: ${thisCountryDetail.getPopulation()}\n` +
+    `Languages: ${thisCountryDetail.getLanguages()}\n` +
+    `Capital: ${thisCountryDetail.getCapital()}\n` +
+    `TLD: ${thisCountryDetail.getTLD()}\n` +
+    `Currencies: ${thisCountryDetail.getCurrencies()}\n` +
+    `Borders: ${borderCountryNames}\n`
+
+  console.log(message)
 }
 
 main()
