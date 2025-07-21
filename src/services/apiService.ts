@@ -1,42 +1,43 @@
-import { APICountry } from "../models/APICountry.js"
-import { Country } from "../models/Country.js"
+import { Country, CountryInterface } from "../models/Country"
+import { CountryDetailInterface } from "../models/CountryDetail"
 
-const BASE_URL = "https://restcountries.com/v3.1/all"
-const FIELDS = ["name", "population", "region", "flags", "cca3", "capital"]
+const BASE_URL: string = "https://restcountries.com/v3.1/all"
+const DETAIL_URL: string = "https://restcountries.com/v3.1/alpha"
+
+const BASE_FIELDS: string[] = [
+  "flags",
+  "name",
+  "cca3",
+  "region",
+  "population",
+  "languages",
+  "capital"
+]
+const DETAIL_FIELDS: string[] = [
+  "tld",
+  "currencies",
+  "subregion",
+  "borders"
+]
 
 function concatFields(fields: string[]): string {
   return fields.join(",")
 }
 
-async function getAllCountries(): Promise<Country[]> {
-  const fields = concatFields(FIELDS)
-  const allCountries = await fetch(`${BASE_URL}?fields=${fields}`)
-  const allCountriesParsed: APICountry[] = await allCountries.json()
-
-  const countryObjects = []
-  if (allCountries != null) {
-    for (const country of allCountriesParsed) {
-      const name: string = country.name.common
-      const population: number = country.population
-      const region: string = country.region
-      const flag: string = country.flags.png
-      const cca3: string = country.cca3
-      const capital: string | undefined = country.capital?.shift()
-
-      const thisCountry = new Country(
-        name,
-        population,
-        region,
-        flag,
-        cca3,
-        capital
-      )
-      countryObjects.push(thisCountry)
-    }
-    return countryObjects
-  } else {
-    throw new Error("The API returned nothing.")
-  }
+async function getAllCountries(): Promise<CountryInterface[]> {
+  const fields = concatFields(BASE_FIELDS)
+  const response = await fetch(`${BASE_URL}?fields=${fields}`)
+  const data: CountryInterface[] = await response.json()
+  return data
 }
 
-export { getAllCountries }
+async function getCountryDetail(country: Country): Promise<CountryDetailInterface> {
+  const fields = concatFields(DETAIL_FIELDS)
+  const response = await fetch(
+    `${DETAIL_URL}/${country.cca3}?fields=${fields}`
+  )
+  const data: CountryDetailInterface = await response.json()
+  return data
+}
+
+export { getAllCountries, getCountryDetail }
