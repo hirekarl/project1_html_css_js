@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/hirekarl/project1_html_css_js#readme",
   "dependencies": {
-    "@yusifaliyevpro/countries": "^2.2.2",
     "bootstrap": "^5.3.7"
   },
   "devDependencies": {

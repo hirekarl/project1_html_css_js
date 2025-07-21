@@ -1,30 +1,24 @@
-/* Needs name (common), population, region,
-   capital, flag (PNG), cca3
-*/
-
-class Country {
+export class Country {
   name: string
   population: number
   region: string
-  capital: string
   flag: string
   cca3: string
+  capital?: string
 
   constructor(
     name: string,
     population: number,
     region: string,
-    capital: string,
     flag: string,
-    cca3: string
+    cca3: string,
+    capital?: string
   ) {
     this.name = name
     this.population = population
     this.region = region
-    this.capital = capital
     this.flag = flag
     this.cca3 = cca3
+    this.capital = capital
   }
 }
-
-export default Country
