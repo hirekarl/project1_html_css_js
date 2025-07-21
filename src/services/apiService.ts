@@ -2,8 +2,6 @@ import { Country, CountryInterface } from "../models/Country"
 import { CountryDetailInterface } from "../models/CountryDetail"
 
 const BASE_URL: string = "https://restcountries.com/v3.1/all"
-const DETAIL_URL: string = "https://restcountries.com/v3.1/alpha"
-
 const BASE_FIELDS: string[] = [
   "flags",
   "name",
@@ -13,6 +11,8 @@ const BASE_FIELDS: string[] = [
   "languages",
   "capital",
 ]
+
+const DETAIL_URL: string = "https://restcountries.com/v3.1/alpha"
 const DETAIL_FIELDS: string[] = ["tld", "currencies", "subregion", "borders"]
 
 function concatFields(fields: string[]): string {
@@ -35,10 +35,4 @@ async function getCountryDetail(
   return data
 }
 
-async function getCountryNameByCCA3(cca3: string): Promise<string> {
-  const response = await fetch(`${DETAIL_URL}/${cca3}?fields=name`)
-  const data = await response.json()
-  return data.name.common
-}
-
-export { getAllCountries, getCountryDetail, getCountryNameByCCA3 }
+export { getAllCountries, getCountryDetail }

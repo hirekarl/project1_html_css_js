@@ -1,11 +1,10 @@
 import { Country } from "./models/Country.js"
 import { CountryDetail } from "./models/CountryDetail.js"
 import { getAllCountries, getCountryDetail } from "./services/apiService.js"
+import { countryList } from "./models/countryList.js"
 
 async function main() {
   const countries = await getAllCountries()
-
-  const allCountries = []
 
   for (const country of countries) {
     const thisCountry = new Country(
@@ -17,13 +16,19 @@ async function main() {
       country.languages,
       country.capital
     )
-    allCountries.push(thisCountry)
+    countryList.addCountry(thisCountry)
   }
 
-  const totalCountries = allCountries.length
+  countryList.sort()
+
+  // console.log(
+  //   countryList.countries.map((country) => country.getCommonName()).join(", ")
+  // )
+
+  const totalCountries = countryList.countries.length
   const randomCountryIndex = Math.ceil(Math.random() * totalCountries + 1)
 
-  const randomCountry = allCountries[randomCountryIndex]
+  const randomCountry = countryList.countries[randomCountryIndex]
   const countryDetail = await getCountryDetail(randomCountry)
 
   const thisCountryDetail: CountryDetail = new CountryDetail(
@@ -40,7 +45,7 @@ async function main() {
     countryDetail.borders
   )
 
-  const borderCountryNames = await thisCountryDetail.getBorderCountryNames()
+  countryList.addCountryDetail(thisCountryDetail)
 
   const message =
     `Information for ${thisCountryDetail.getCommonName()}:\n` +
@@ -54,7 +59,7 @@ async function main() {
     `Capital: ${thisCountryDetail.getCapital()}\n` +
     `TLD: ${thisCountryDetail.getTLD()}\n` +
     `Currencies: ${thisCountryDetail.getCurrencies()}\n` +
-    `Borders: ${borderCountryNames.length > 0 ? borderCountryNames : "N/A"}\n`
+    `Borders: ${thisCountryDetail.getBorderCountryNames()}\n`
 
   console.log(message)
 }
