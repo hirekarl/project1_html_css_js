@@ -1,0 +1,59 @@
+[
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/md.png",
+      "svg": "https://flagcdn.com/md.svg",
+      "alt": "The flag of Moldova is composed of three equal vertical bands of blue, yellow and red, with the national coat of arms centered in the yellow band."
+    },
+    "name": {
+      "common": "Moldova",
+      "official": "Republic of Moldova",
+      "nativeName": {
+        "ron": { "official": "Republica Moldova", "common": "Moldova" }
+      }
+    },
+    "cca3": "MDA",
+    "capital": ["Chișinău"],
+    "region": "Europe",
+    "population": 2617820
+  },
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/km.png",
+      "svg": "https://flagcdn.com/km.svg",
+      "alt": "The flag of Comoros is composed of four equal horizontal bands of yellow, white, red and blue, with a green isosceles triangle superimposed on the hoist side of the field. This triangle has its base on the hoist end, spans about two-fifth the width of the field and bears a fly-side facing white crescent and four five-pointed white stars arranged in a vertical line along the opening of the crescent."
+    },
+    "name": {
+      "common": "Comoros",
+      "official": "Union of the Comoros",
+      "nativeName": {
+        "ara": { "official": "الاتحاد القمري", "common": "القمر‎" },
+        "fra": { "official": "Union des Comores", "common": "Comores" },
+        "zdj": { "official": "Udzima wa Komori", "common": "Komori" }
+      }
+    },
+    "cca3": "COM",
+    "capital": ["Moroni"],
+    "region": "Africa",
+    "population": 869595
+  },
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/my.png",
+      "svg": "https://flagcdn.com/my.svg",
+      "alt": "The flag of Malaysia is composed of fourteen equal horizontal bands of red alternating with white. A blue rectangle, bearing a fly-side facing yellow crescent and a fourteen-pointed yellow star placed just outside the crescent opening, is superimposed in the canton."
+    },
+    "name": {
+      "common": "Malaysia",
+      "official": "Malaysia",
+      "nativeName": {
+        "eng": { "official": "Malaysia", "common": "Malaysia" },
+        "msa": { "official": "مليسيا", "common": "مليسيا" }
+      }
+    },
+    "cca3": "MYS",
+    "capital": ["Kuala Lumpur"],
+    "region": "Asia",
+    "population": 32365998
+  }
+]

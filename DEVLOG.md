@@ -18,4 +18,5 @@
 - Set up configurations for ESLint, TSC, and NPM.
 
 ## <time datetime="2025-07-21">July 21, 2025</time>
-- 9:00 A.M. &endash; 9:20 A.M. : Spec'd out element ids, classes, dataset attributes in index.html
+- 9:00 A.M. &endash; 9:20 A.M. : Spec'd out element ids, classes, dataset attributes in index.html.
+- 9:20 A.M. &endash; 9:55 A.M. : Worked on API call for all countries
