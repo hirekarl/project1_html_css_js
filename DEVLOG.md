@@ -16,3 +16,6 @@
 - Studied [REST Countries API documentation](https://restcountries.com/), [REST Countries API field reference](https://gitlab.com/restcountries/restcountries/-/blob/master/FIELDS.md) and [@yusifaliyevpro/countries](https://www.npmjs.com/package/@yusifaliyevpro/countries).
 - Set up skeletons for TypeScript scripts.
 - Set up configurations for ESLint, TSC, and NPM.
+
+## <time datetime="2025-07-21">July 21, 2025</time>
+- 9:00 A.M. &endash; 9:20 A.M. : Spec'd out element ids, classes, dataset attributes in index.html

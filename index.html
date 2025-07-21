@@ -18,7 +18,8 @@
     <header>
       <nav class="navbar px-3 py-3 border">
         <a href="#" class="navbar-brand fw-bold">Where in the world?</a>
-        <button class="btn btn-outline-tertiary"><i class="bi bi-moon"></i> Dark
+        <button id="dark-mode-toggle-button" class="btn btn-outline-tertiary"><i
+            class="bi bi-moon"></i> Dark
           Mode</button>
       </nav>
     </header>
@@ -32,18 +33,19 @@
                   <span class="input-group-text"><i
                       class="bi bi-search"></i></span>
                   <input
+                    id="country-search-input"
                     type="text"
                     class="form-control"
                     placeholder="Search for a country..." />
                 </div>
                 <div>
-                  <select id="region" class="form-select">
+                  <select id="region-select" class="form-select">
                     <option selected>Filter by Region</option>
-                    <option value="africa">Africa</option>
+                    <!-- <option value="africa">Africa</option>
                     <option value="americas">Americas</option>
                     <option value="asia">Asia</option>
                     <option value="europe">Europe</option>
-                    <option value="oceania">Oceania</option>
+                    <option value="oceania">Oceania</option> -->
                   </select>
                 </div>
               </div>
@@ -54,8 +56,8 @@
       <section class="container-fluid">
         <div class="mx-3">
           <div class="row">
-            <div
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div data-id="0"
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
               <div class="card">
                 <img
                   src="https://placehold.co/400x200"
@@ -65,16 +67,16 @@
                   <h2 class="card-title fs-5 fw-bold py-2">Germany</h2>
                   <div class="card-text">
                     <ul class="list-unstyled">
-                      <li><strong>Population:</strong> 81,770,900</li>
-                      <li><strong>Region:</strong> Europe</li>
-                      <li><strong>Capital:</strong> Berlin</li>
+                      <li class="country-card-population"><strong>Population:</strong> 81,770,900</li>
+                      <li class="country-card-region"><strong>Region:</strong> Europe</li>
+                      <li class="country-card-capital"><strong>Capital:</strong> Berlin</li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div data-id="1"
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
               <div class="card">
                 <img
                   src="https://placehold.co/400x200"
@@ -93,8 +95,8 @@
                 </div>
               </div>
             </div>
-            <div
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div data-id="2"
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
               <div class="card">
                 <img src="https://placehold.co/400x200" class="card-img-top"
                   alt />
@@ -110,8 +112,8 @@
                 </div>
               </div>
             </div>
-            <div
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div data-id="3"
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
               <div class="card">
                 <img src="https://placehold.co/400x200" class="card-img-top"
                   alt />
@@ -127,10 +129,10 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+          <!-- </div>
+          <div class="row"> -->
+            <div data-id="4"
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
               <div class="card">
                 <img src="https://placehold.co/400x200" class="card-img-top"
                   alt />
@@ -146,8 +148,8 @@
                 </div>
               </div>
             </div>
-            <div
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div data-id="5"
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
               <div class="card">
                 <img src="https://placehold.co/400x200" class="card-img-top"
                   alt />
@@ -163,8 +165,8 @@
                 </div>
               </div>
             </div>
-            <div
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div data-id="6"
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
               <div class="card">
                 <img src="https://placehold.co/400x200" class="card-img-top"
                   alt />
@@ -180,8 +182,8 @@
                 </div>
               </div>
             </div>
-            <div
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div data-id="7"
+              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
               <div class="card">
                 <img src="https://placehold.co/400x200" class="card-img-top"
                   alt />
