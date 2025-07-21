@@ -41,7 +41,7 @@ async function main() {
   )
 
   console.log(
-    `The TLD for ${thisCountryDetail.getCommonName()} is ${thisCountryDetail.getTLD()}.`
+    `The people in ${thisCountryDetail.getCommonName()} speak ${thisCountryDetail.getLanguages()}.`
   )
 }
 
