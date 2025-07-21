@@ -20,7 +20,6 @@ export type Languages = {
 }
 
 export interface CountryInterface {
-  // domElement: HTMLDivElement
   flags: Flags
   name: Name
   cca3: string

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html id="root" lang="en-US" data-bs-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar px-3 py-3 border">
+      <nav class="navbar px-3 py-3 border-bottom border-tertiary">
         <a href="#" class="navbar-brand fw-bold">Where in the world?</a>
         <button id="dark-mode-toggle-button" class="btn btn-outline-tertiary"><i
             class="bi bi-moon"></i> Dark
@@ -41,11 +41,8 @@
                 <div>
                   <select id="region-select" class="form-select">
                     <option selected>Filter by Region</option>
-                    <!-- <option value="africa">Africa</option>
-                    <option value="americas">Americas</option>
-                    <option value="asia">Asia</option>
-                    <option value="europe">Europe</option>
-                    <option value="oceania">Oceania</option> -->
+                    <option class="region-select-option" value="All">All
+                      Regions</option>
                   </select>
                 </div>
               </div>
@@ -55,149 +52,7 @@
       </section>
       <section class="container-fluid">
         <div class="mx-3">
-          <div class="row" id="countries-container">
-            <!-- <div data-cca3="GER"
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
-              <div class="card">
-                <img
-                  src="https://placehold.co/400x200"
-                  class="card-img-top"
-                  alt />
-                <div class="card-body">
-                  <h2 class="card-title fs-5 fw-bold py-2">Germany</h2>
-                  <div class="card-text">
-                    <ul class="list-unstyled">
-                      <li class="country-card-population"><strong>Population:</strong> 81,770,900</li>
-                      <li class="country-card-region"><strong>Region:</strong> Europe</li>
-                      <li class="country-card-capital"><strong>Capital:</strong> Berlin</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-cca3="USA"
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
-              <div class="card">
-                <img
-                  src="https://placehold.co/400x200"
-                  class="card-img-top"
-                  alt />
-                <div class="card-body">
-                  <h2 class="card-title fs-5 fw-bold py-2">United States of
-                    America</h2>
-                  <div class="card-text">
-                    <ul class="list-unstyled">
-                      <li><strong>Population:</strong> 323,947,000</li>
-                      <li><strong>Region:</strong> Americas</li>
-                      <li><strong>Capital:</strong> Washington, D.C.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-id="2"
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
-              <div class="card">
-                <img src="https://placehold.co/400x200" class="card-img-top"
-                  alt />
-                <div class="card-body">
-                  <h2 class="card-title fs-5 fw-bold py-2">Brazil</h2>
-                  <div class="card-text">
-                    <ul class="list-unstyled">
-                      <li><strong>Population:</strong> 206,135,893</li>
-                      <li><strong>Region:</strong> Americas</li>
-                      <li><strong>Capital:</strong> Brasilia</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-id="3"
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
-              <div class="card">
-                <img src="https://placehold.co/400x200" class="card-img-top"
-                  alt />
-                <div class="card-body">
-                  <h2 class="card-title fs-5 fw-bold py-2">Iceland</h2>
-                  <div class="card-text">
-                    <ul class="list-unstyled">
-                      <li><strong>Population:</strong> 334,300</li>
-                      <li><strong>Region:</strong> Europe</li>
-                      <li><strong>Capital:</strong> Reykjavik</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-id="4"
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
-              <div class="card">
-                <img src="https://placehold.co/400x200" class="card-img-top"
-                  alt />
-                <div class="card-body">
-                  <h2 class="card-title fs-5 fw-bold py-2">Afghanistan</h2>
-                  <div class="card-text">
-                    <ul class="list-unstyled">
-                      <li><strong>Population:</strong> 27,657,145</li>
-                      <li><strong>Region:</strong> Asia</li>
-                      <li><strong>Capital:</strong> Kabul</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-id="5"
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
-              <div class="card">
-                <img src="https://placehold.co/400x200" class="card-img-top"
-                  alt />
-                <div class="card-body">
-                  <h2 class="card-title fs-5 fw-bold py-2">Aland Islands</h2>
-                  <div class="card-text">
-                    <ul class="list-unstyled">
-                      <li><strong>Population:</strong> 28,875</li>
-                      <li><strong>Region:</strong> Europe</li>
-                      <li><strong>Capital:</strong> Mariehamn</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-id="6"
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
-              <div class="card">
-                <img src="https://placehold.co/400x200" class="card-img-top"
-                  alt />
-                <div class="card-body">
-                  <h2 class="card-title fs-5 fw-bold py-2">Albania</h2>
-                  <div class="card-text">
-                    <ul class="list-unstyled">
-                      <li><strong>Population:</strong> 2,886,026</li>
-                      <li><strong>Region:</strong> Europe</li>
-                      <li><strong>Capital:</strong> Tirana</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-id="7"
-              class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4 country-card-container">
-              <div class="card">
-                <img src="https://placehold.co/400x200" class="card-img-top"
-                  alt />
-                <div class="card-body">
-                  <h2 class="card-title fs-5 fw-bold py-2">Algeria</h2>
-                  <div class="card-text">
-                    <ul class="list-unstyled">
-                      <li><strong>Population:</strong> 40,400,000</li>
-                      <li><strong>Region:</strong> Africa</li>
-                      <li><strong>Capital:</strong> Algiers</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-          </div>
+          <div class="row" id="countries-container"></div>
         </div>
       </section>
     </main>
