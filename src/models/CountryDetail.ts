@@ -39,7 +39,11 @@ export class CountryDetail extends Country implements CountryDetailInterface {
   }
 
   getTLD(): string[] {
-    return this.tld
+    return this.tld || ["N/A"]
+  }
+
+  displayTLDs(): string {
+    return this.getTLD().join(", ")
   }
 
   getCurrencies(): string[] {
@@ -47,19 +51,47 @@ export class CountryDetail extends Country implements CountryDetailInterface {
     for (const currency of Object.values(this.currencies)) {
       currenciesArray.push(currency.name)
     }
-    return currenciesArray
+    if (currenciesArray.length > 0) {
+      return currenciesArray
+    } else {
+      return ["N/A"]
+    }
+  }
+
+  displayCurrencies(): string {
+    return this.getCurrencies().join(", ")
   }
 
   getSubregion(): string {
-    return this.subregion
+    return this.subregion || "N/A"
   }
 
-  getBorderCountryNames(): string[] {
-    const borderCountryNames = []
-    for (const cca3 of this.borders) {
+  getBorderCountries(): [string, string][] {
+    const borderCountries: [string, string][] = []
+
+    this.borders.forEach((cca3) => {
+      const borderTuple: [string, string] = ["", ""]
+      borderTuple[0] = cca3
+
       const country: Country = countryList.getCountryByCCA3(cca3)
-      if (country) borderCountryNames.push(country.name.common)
-    }
-    return borderCountryNames
+      borderTuple[1] = country.name.common
+      
+      borderCountries.push(borderTuple)
+    })
+
+    return borderCountries
   }
+
+  // getBorderCountryCCA3s(): string[] {
+  //   return this.borders
+  // }
+
+  // getBorderCountryNames(): string[] {
+  //   const borderCountryNames = []
+  //   for (const cca3 of this.borders) {
+  //     const country: Country = countryList.getCountryByCCA3(cca3)
+  //     if (country) borderCountryNames.push(country.name.common)
+  //   }
+  //   return borderCountryNames
+  // }
 }

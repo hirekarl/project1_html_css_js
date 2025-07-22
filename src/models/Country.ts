@@ -64,9 +64,9 @@ export class Country implements CountryInterface {
         nativeName: {
           eng: {
             official: "Occupied Palestine",
-            common: "Occupied Palestine"
-          }
-        }
+            common: "Occupied Palestine",
+          },
+        },
       }
     }
 
@@ -138,14 +138,16 @@ export class Country implements CountryInterface {
   }
 
   getCommonName(): string {
-    if (this.name.common === "Israel") {
-      return "The Zionist Entity"
-    }
     return this.name.common
   }
 
   getNativeName(): string {
-    return this.name.nativeName[this.getFirstLanguageCode()].common
+    try {
+      return this.name.nativeName[this.getFirstLanguageCode()].common
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      return "N/A"
+    }
   }
 
   getCCA3(): string {
@@ -165,7 +167,15 @@ export class Country implements CountryInterface {
   }
 
   getLanguages(): string[] {
-    return Object.values(this.languages)
+    if (Object.values(this.languages).length > 0) {
+      return Object.values(this.languages)
+    } else {
+      return ["N/A"]
+    }
+  }
+
+  displayLanguages(): string {
+    return this.getLanguages().join(", ")
   }
 
   getFirstLanguageCode(): string {
@@ -173,6 +183,6 @@ export class Country implements CountryInterface {
   }
 
   getCapital(): string {
-    return this.capital[0]
+    return this.capital[0] || "N/A"
   }
 }

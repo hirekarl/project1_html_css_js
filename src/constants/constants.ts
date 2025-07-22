@@ -26,9 +26,13 @@ const countryDetailModal = document.getElementById(
   "country-detail-modal"
 ) as HTMLDivElement
 
-// const modalTitle = document.getElementById(
-//   "modal-title"
-// ) as HTMLDivElement
+const modalFlagContainer = document.getElementById(
+  "modal-flag-container"
+) as HTMLDivElement
+
+const modalInfoContainer = document.getElementById(
+  "modal-info-container"
+) as HTMLDivElement
 
 export {
   htmlElement,
@@ -38,4 +42,6 @@ export {
   regionSelect,
   countriesContainer,
   countryDetailModal,
+  modalFlagContainer,
+  modalInfoContainer
 }
