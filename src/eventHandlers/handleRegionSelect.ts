@@ -1,4 +1,4 @@
-import { countryList } from "../models/countryList.js"
+import countryList from "../models/countryList.js"
 
 function handleRegionSelect(event: MouseEvent) {
   event.preventDefault()

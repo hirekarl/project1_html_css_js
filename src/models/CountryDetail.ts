@@ -1,5 +1,5 @@
 import { Name, Flags, Languages, Country } from "./Country.js"
-import { countryList } from "./countryList.js"
+import countryList from "./countryList.js"
 
 export type Currencies = {
   [key: string]: { name: string; symbol: string }

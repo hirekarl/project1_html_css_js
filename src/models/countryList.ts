@@ -15,7 +15,7 @@ interface CountryListInterface {
   getCountriesByRegion(region: string): Country[]
 }
 
-export const countryList: CountryListInterface = {
+const countryList: CountryListInterface = {
   domElement: countriesContainer as HTMLDivElement,
   countries: [],
   sort: function (): void {
@@ -64,3 +64,5 @@ export const countryList: CountryListInterface = {
     return regionResults
   },
 }
+
+export default countryList

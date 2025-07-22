@@ -1,6 +1,6 @@
 import { Country } from "../models/Country.js"
 import { getAllCountries } from "../services/apiService.js"
-import { countryList } from "../models/countryList.js"
+import countryList from "../models/countryList.js"
 
 async function populateCountries(): Promise<void> {
   const countries = await getAllCountries()

@@ -1,12 +1,14 @@
-import { htmlElement, darkModeToggleButton } from "../constants/constants.js"
+import { htmlElement, darkModeToggleButton, darkModeToggleButtonModal } from "../constants/constants.js"
 
 function handleDarkModeToggleButton() {
   if (htmlElement.dataset.bsTheme === "light") {
     htmlElement.dataset.bsTheme = "dark"
     darkModeToggleButton.innerHTML = '<i class="bi bi-sun-fill"></i> Light Mode'
+    darkModeToggleButtonModal.innerHTML = '<i class="bi bi-sun-fill"></i> Light Mode'
   } else {
     htmlElement.dataset.bsTheme = "light"
     darkModeToggleButton.innerHTML = '<i class="bi bi-moon"></i> Dark Mode'
+    darkModeToggleButtonModal.innerHTML = '<i class="bi bi-moon"></i> Dark Mode'
   }
 }
 

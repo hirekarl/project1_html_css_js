@@ -1,4 +1,4 @@
-import { countryList } from "../models/countryList.js"
+import countryList from "../models/countryList.js"
 import { regionSelect } from "../constants/constants.js"
 
 function populateRegions(): void {

@@ -75,6 +75,8 @@ export class Country implements CountryInterface {
 
   createBaseHTML(): void {
     this.domElement.dataset.cca3 = this.cca3
+    this.domElement.dataset.bsToggle = "modal"
+    this.domElement.dataset.bsTarget = "#country-detail-modal"
     this.domElement.classList.add(
       "col-xl-3",
       "col-lg-3",

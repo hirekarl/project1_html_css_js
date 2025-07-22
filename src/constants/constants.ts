@@ -6,6 +6,10 @@ const darkModeToggleButton: HTMLButtonElement = document.getElementById(
   "dark-mode-toggle-button"
 ) as HTMLButtonElement
 
+const darkModeToggleButtonModal: HTMLButtonElement = document.getElementById(
+  "dark-mode-toggle-button-modal"
+) as HTMLButtonElement
+
 const countrySearchInput = document.getElementById(
   "country-search-input"
 ) as HTMLInputElement
@@ -18,10 +22,20 @@ const countriesContainer = document.getElementById(
   "countries-container"
 ) as HTMLDivElement
 
+const countryDetailModal = document.getElementById(
+  "country-detail-modal"
+) as HTMLDivElement
+
+// const modalTitle = document.getElementById(
+//   "modal-title"
+// ) as HTMLDivElement
+
 export {
   htmlElement,
   darkModeToggleButton,
+  darkModeToggleButtonModal,
   countrySearchInput,
   regionSelect,
   countriesContainer,
+  countryDetailModal,
 }
