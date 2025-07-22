@@ -57,20 +57,6 @@ export class Country implements CountryInterface {
     this.languages = languages
     this.capital = capital
 
-    if (this.name.common === "Israel") {
-      this.capital = ["N/A"]
-      this.name = {
-        common: "Occupied Palestine",
-        official: "Occupied Palestine",
-        nativeName: {
-          ara: {
-            official: "Occupied Palestine",
-            common: "Occupied Palestine",
-          },
-        },
-      }
-    }
-
     this.createHTML()
   }
 
