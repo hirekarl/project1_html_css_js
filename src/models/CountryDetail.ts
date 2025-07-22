@@ -1,3 +1,10 @@
+// The API has a limit of 10 fields for requests, so CountryDetail
+// is an extension of Country that allows for the additional
+// field queries when the user clicks on a Country card for more
+// detail. Implementation is lazy in that API calls for the
+// extra fields are only made when new data is necessary.
+
+
 import { Name, Flags, Languages, Country } from "./Country.js"
 import countryList from "./countryList.js"
 
@@ -66,6 +73,12 @@ export class CountryDetail extends Country implements CountryDetailInterface {
     return this.subregion || "N/A"
   }
 
+  // To get and use the border countries, it was useful to grab
+  // both the CCA3 (country code) value and the common name:
+  // the CCA3 to reference the Country instance, and the
+  // common name to be printed inside the button, so this
+  // returns a list of [string, string] tuples, where index 0
+  // of each tuple is the CCA3 and index 1 is the common name.
   getBorderCountries(): [string, string][] {
     const borderCountries: [string, string][] = []
 
@@ -81,17 +94,4 @@ export class CountryDetail extends Country implements CountryDetailInterface {
 
     return borderCountries
   }
-
-  // getBorderCountryCCA3s(): string[] {
-  //   return this.borders
-  // }
-
-  // getBorderCountryNames(): string[] {
-  //   const borderCountryNames = []
-  //   for (const cca3 of this.borders) {
-  //     const country: Country = countryList.getCountryByCCA3(cca3)
-  //     if (country) borderCountryNames.push(country.name.common)
-  //   }
-  //   return borderCountryNames
-  // }
 }

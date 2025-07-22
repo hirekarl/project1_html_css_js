@@ -63,7 +63,7 @@ export class Country implements CountryInterface {
         common: "Occupied Palestine",
         official: "Occupied Palestine",
         nativeName: {
-          eng: {
+          ara: {
             official: "Occupied Palestine",
             common: "Occupied Palestine",
           },
@@ -74,6 +74,8 @@ export class Country implements CountryInterface {
     this.createHTML()
   }
 
+  // I just learned about how to make and use HTML templates,
+  // but that implementation will have to wait for a refactor.
   createHTML(): void {
     this.domElement.dataset.cca3 = this.cca3
     this.domElement.dataset.bsToggle = "modal"
@@ -179,6 +181,8 @@ export class Country implements CountryInterface {
     return this.getLanguages().join(", ")
   }
 
+  // Find the first language code given in the languages object
+  // for use when finding the nativeName.
   getFirstLanguageCode(): string {
     return Object.keys(this.languages)[0]
   }

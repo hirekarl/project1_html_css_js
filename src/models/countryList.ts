@@ -9,10 +9,12 @@ interface CountryListInterface {
   sort(): void
   display(): void
   displayRegion(region: string): void
+  displaySearchResults(searchTerm: string): void
   addCountry(country: Country): void
   addCountryDetail(countryDetail: CountryDetail): void
   getCountryByCCA3(cca3: string): Country
   getCountriesByRegion(region: string): Country[]
+  getCountriesBySearchTerm(searchTerm: string): Country[]
 }
 
 const countryList: CountryListInterface = {
@@ -20,6 +22,7 @@ const countryList: CountryListInterface = {
   countries: [],
   sort: function (): void {
     this.countries.sort((a, b) =>
+      // Sort in alphabetical order, ascending
       a.getCommonName().localeCompare(b.getCommonName())
     )
   },
@@ -44,6 +47,15 @@ const countryList: CountryListInterface = {
     )
     this.domElement.appendChild(countriesDocFrag)
   },
+  displaySearchResults: function (searchTerm: string): void {
+    const searchResults = this.getCountriesBySearchTerm(searchTerm)
+    this.domElement.innerText = ""
+    const searchResultsDocFrag = new DocumentFragment()
+    searchResults.forEach((country) =>
+      searchResultsDocFrag.appendChild(country.getDomElement())
+    )
+    this.domElement.appendChild(searchResultsDocFrag)
+  },
   addCountry: function (country: Country): void {
     this.countries.push(country)
   },
@@ -62,6 +74,14 @@ const countryList: CountryListInterface = {
       (country) => country.region === region
     )
     return regionResults
+  },
+  getCountriesBySearchTerm: function (searchTerm: string): Country[] {
+    // With more time, I'd implement a search that, in addition to being
+    // case-insensitive, is agnostic to accents, diacritics, and other marks.
+    const searchResults: Country[] = this.countries.filter((country) =>
+      country.getCommonName().toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    return searchResults
   },
 }
 
