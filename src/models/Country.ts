@@ -58,6 +58,7 @@ export class Country implements CountryInterface {
     this.capital = capital
 
     if (this.name.common === "Israel") {
+      this.capital = ["N/A"]
       this.name = {
         common: "Occupied Palestine",
         official: "Occupied Palestine",
@@ -70,10 +71,10 @@ export class Country implements CountryInterface {
       }
     }
 
-    this.createBaseHTML()
+    this.createHTML()
   }
 
-  createBaseHTML(): void {
+  createHTML(): void {
     this.domElement.dataset.cca3 = this.cca3
     this.domElement.dataset.bsToggle = "modal"
     this.domElement.dataset.bsTarget = "#country-detail-modal"
