@@ -22,6 +22,8 @@ Write a 200-300 word reflection discussing your development process, challenges 
 > I just learned about HTML templating for JavaScript. If I had known about it, I would have wrapped the country cards and the modal interiors in `<template>` tags rather than imperatively setting each dynamically created element and its associated attributes and classes by hand. There's certainly a lot of repetition in the code that could be deduplicated, and for sure some opportunities for performance improvements.
 >
 > As it stands, transitions (page load, modal show and hide, and region select) could use finessing. Page load and modal show in particular could benefit from some hiding of content until all items are loaded. With more time, I'd also try to match style spec items more exactly.
+>
+> Upon first deploy, the Region select was working in Firefox but not Chrome. After further research, I learned that I should be listening to `"change"` events, not `"click"` events, on `<select>` elements.
 
 ### Assignment
 
