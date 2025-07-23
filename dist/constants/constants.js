@@ -1,0 +1,10 @@
+const htmlElement = document.getElementById("root");
+const darkModeToggleButton = document.getElementById("dark-mode-toggle-button");
+const darkModeToggleButtonModal = document.getElementById("dark-mode-toggle-button-modal");
+const countrySearch = document.getElementById("country-search");
+const regionSelect = document.getElementById("region-select");
+const countriesContainer = document.getElementById("countries-container");
+const countryDetailModal = document.getElementById("country-detail-modal");
+const modalFlagContainer = document.getElementById("modal-flag-container");
+const modalInfoContainer = document.getElementById("modal-info-container");
+export { htmlElement, darkModeToggleButton, darkModeToggleButtonModal, countrySearch, regionSelect, countriesContainer, countryDetailModal, modalFlagContainer, modalInfoContainer };

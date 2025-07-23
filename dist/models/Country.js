@@ -1,0 +1,103 @@
+export class Country {
+    constructor(flags, name, cca3, region, population, languages, capital) {
+        this.domElement = document.createElement("div");
+        this.flags = flags;
+        this.name = name;
+        this.cca3 = cca3;
+        this.region = region;
+        this.population = population;
+        this.languages = languages;
+        this.capital = capital;
+        this.createHTML();
+    }
+    // I just learned about how to make and use HTML templates,
+    // but that implementation will have to wait for a refactor.
+    createHTML() {
+        this.domElement.dataset.cca3 = this.cca3;
+        this.domElement.dataset.bsToggle = "modal";
+        this.domElement.dataset.bsTarget = "#country-detail-modal";
+        this.domElement.classList.add("col-xl-3", "col-lg-3", "col-md-6", "col-sm-12", "mb-4", "country-card-container");
+        const cardDiv = document.createElement("div");
+        cardDiv.classList.add("card", "shadow");
+        this.domElement.appendChild(cardDiv);
+        const flagImg = document.createElement("img");
+        flagImg.setAttribute("src", this.getFlagPNGURL());
+        flagImg.setAttribute("alt", `The flag of ${this.getCommonName()}.`);
+        flagImg.classList.add("card-img-top");
+        cardDiv.appendChild(flagImg);
+        const cardBodyDiv = document.createElement("div");
+        cardBodyDiv.classList.add("card-body");
+        cardDiv.appendChild(cardBodyDiv);
+        const countryNameH2 = document.createElement("h2");
+        countryNameH2.classList.add("card-title", "fs-5", "fw-bold", "py-2");
+        countryNameH2.innerText = this.getCommonName();
+        cardBodyDiv.appendChild(countryNameH2);
+        const cardTextDiv = document.createElement("div");
+        cardTextDiv.classList.add("card-text");
+        cardBodyDiv.appendChild(cardTextDiv);
+        const countryFactsUL = document.createElement("ul");
+        countryFactsUL.classList.add("list-unstyled");
+        cardTextDiv.appendChild(countryFactsUL);
+        const countryPopulationLI = document.createElement("li");
+        countryPopulationLI.classList.add("country-card-population");
+        countryPopulationLI.innerHTML = `<strong>Population:</strong> ${this.displayPopulation()}`;
+        countryFactsUL.appendChild(countryPopulationLI);
+        const countryRegionLI = document.createElement("li");
+        countryRegionLI.classList.add("country-card-region");
+        countryRegionLI.innerHTML = `<strong>Region:</strong> ${this.getRegion()}`;
+        countryFactsUL.appendChild(countryRegionLI);
+        const countryCapitalLI = document.createElement("li");
+        countryCapitalLI.classList.add("country-card-capital");
+        countryCapitalLI.innerHTML = `<strong>Capital:</strong> ${this.getCapital()}`;
+        countryFactsUL.appendChild(countryCapitalLI);
+    }
+    getDomElement() {
+        return this.domElement;
+    }
+    getFlagPNGURL() {
+        return this.flags.png;
+    }
+    getCommonName() {
+        return this.name.common;
+    }
+    getNativeName() {
+        try {
+            return this.name.nativeName[this.getFirstLanguageCode()].common;
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        }
+        catch (error) {
+            return "N/A";
+        }
+    }
+    getCCA3() {
+        return this.cca3;
+    }
+    getRegion() {
+        return this.region;
+    }
+    getPopulation() {
+        return this.population;
+    }
+    displayPopulation() {
+        return this.getPopulation().toLocaleString("en-US");
+    }
+    getLanguages() {
+        if (Object.values(this.languages).length > 0) {
+            return Object.values(this.languages);
+        }
+        else {
+            return ["N/A"];
+        }
+    }
+    displayLanguages() {
+        return this.getLanguages().join(", ");
+    }
+    // Find the first language code given in the languages object
+    // for use when finding the nativeName.
+    getFirstLanguageCode() {
+        return Object.keys(this.languages)[0];
+    }
+    getCapital() {
+        return this.capital[0] || "N/A";
+    }
+}
