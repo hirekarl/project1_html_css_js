@@ -31,7 +31,7 @@ function main() {
         darkModeToggleButtons.forEach((button) => {
             button.addEventListener("click", handleDarkModeToggleButton);
         });
-        regionSelect.addEventListener("click", (event) => handleRegionSelect(event));
+        regionSelect.addEventListener("change", (event) => handleRegionSelect(event));
         countriesContainer.addEventListener("click", (event) => handleCountry(event));
     });
 }

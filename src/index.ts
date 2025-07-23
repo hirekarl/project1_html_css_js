@@ -33,8 +33,8 @@ async function main(): Promise<void> {
     button.addEventListener("click", handleDarkModeToggleButton)
   })
 
-  regionSelect.addEventListener("click", (event) =>
-    handleRegionSelect(event as MouseEvent)
+  regionSelect.addEventListener("change", (event) =>
+    handleRegionSelect(event as Event)
   )
 
   countriesContainer.addEventListener("click", (event) =>
