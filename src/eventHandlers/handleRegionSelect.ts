@@ -1,8 +1,8 @@
 import countryList from "../models/countryList.js"
 
 function handleRegionSelect(event: Event): void {
-  const regionSelect = event.target as HTMLSelectElement
-  const selectedRegion = regionSelect.value
+  const regionSelect: HTMLSelectElement = event.target as HTMLSelectElement
+  const selectedRegion: string = regionSelect.value
 
   if (selectedRegion === "Filter by Region") {
     return
