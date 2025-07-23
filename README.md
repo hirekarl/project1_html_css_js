@@ -4,18 +4,24 @@
 2025-RTT-30  
 <time datetime="2025-07-17">2025-07-17</time>  
 
-![Preview alt text goes here.](./preview.png)
+![Preview of Karl Johnson's submission for Project 1, showing country cards for Afghanistan, Åland Islands, Albania, and Algeria.](./images/preview.png)
 
 ## Overview
 ### Viewer Instructions
-Navigate to [TODO]().
+Navigate to [`calm-monstera-1df2a6.netlify.app`](https://calm-monstera-1df2a6.netlify.app/).
 
 ### Submission Source
-Top-level program behavior can be found in [`TODO`]().
+Top-level program behavior can be found in [`./src/index.ts`](./src/index.ts).
 
 ### Reflection
 Write a 200-300 word reflection discussing your development process, challenges faced, solutions implemented, and potential improvements.
-> TODO
+> I used Bootstrap to handle the layout and styling for this. At first, I was trying to match the design exactly, and I spent the whole first day trying to do so. In the end, I decided I'd rather work within what was intuitive for Bootstrap rather than try to get the spacing and colors exactly right. This time around, I compiled Bootstrap CSS from scratch with some customization, mainly to deal with the typography and hover states.
+>
+> I was initially using [a third-party library](https://www.npmjs.com/package/@yusifaliyevpro/countries) to better deal with the API calls, but I found that I wanted to get into the guts of the API calls myself. It took a lot of time to wrangle the TypeScript around the data, which I imagine would get better with practice. With an opportunity for a refactor, I may consider re-implementing the third-party library to better deal with the calls.
+>
+> I just learned about HTML templating for JavaScript. If I had known about it, I would have wrapped the country cards and the modal interiors in `<template>` tags rather than imperatively setting each dynamically created element and its associated attributes and classes by hand. There's certainly a lot of repetition in the code that could be deduplicated, and for sure some opportunities for performance improvements.
+>
+> As it stands, transitions (page load, modal show and hide, and region select) could use finessing. Page load and modal show in particular could benefit from some hiding of content until all items are loaded. With more time, I'd also try to match style spec items more exactly.
 
 ### Assignment
 
