@@ -7,8 +7,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const BASE_URL = "https://restcountries.com/v3.1/all";
-const BASE_FIELDS = [
+const BASE_URL = "https://restcountries.com/v3.1";
+const COUNTRY_URL = `${BASE_URL}/all`;
+const COUNTRY_FIELDS = [
     "flags",
     "name",
     "cca3",
@@ -17,8 +18,13 @@ const BASE_FIELDS = [
     "languages",
     "capital",
 ];
-const DETAIL_URL = "https://restcountries.com/v3.1/alpha";
-const DETAIL_FIELDS = ["tld", "currencies", "subregion", "borders"];
+const COUNTRY_DETAIL_URL = `${BASE_URL}/alpha`;
+const COUNTRY_DETAIL_FIELDS = [
+    "tld",
+    "currencies",
+    "subregion",
+    "borders",
+];
 class APIError extends Error {
     constructor(message) {
         super(message);
@@ -30,27 +36,27 @@ function concatFields(fields) {
 }
 function getAllCountries() {
     return __awaiter(this, void 0, void 0, function* () {
-        const fields = concatFields(BASE_FIELDS);
+        const countryFields = concatFields(COUNTRY_FIELDS);
         try {
-            const response = yield fetch(`${BASE_URL}?fields=${fields}`);
+            const response = yield fetch(`${COUNTRY_URL}?fields=${countryFields}`);
             const data = yield response.json();
             return data;
         }
         catch (error) {
-            throw new APIError(`${error.name} on getAllCountries(): ${error.message}`);
+            throw new APIError(`${error.name} on getAllCountries: ${error.message}`);
         }
     });
 }
 function getCountryDetail(country) {
     return __awaiter(this, void 0, void 0, function* () {
+        const countryDetailFields = concatFields(COUNTRY_DETAIL_FIELDS);
         try {
-            const fields = concatFields(DETAIL_FIELDS);
-            const response = yield fetch(`${DETAIL_URL}/${country.cca3}?fields=${fields}`);
+            const response = yield fetch(`${COUNTRY_DETAIL_URL}/${country.getCCA3()}?fields=${countryDetailFields}`);
             const data = yield response.json();
             return data;
         }
         catch (error) {
-            throw new APIError(`${error.name} on getCountryDetail(): ${error.message}`);
+            throw new APIError(`${error.name} on getCountryDetail with ${JSON.stringify(country.getCommonName())}: ${error.message}`);
         }
     });
 }

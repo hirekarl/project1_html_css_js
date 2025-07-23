@@ -1,8 +1,10 @@
 import { Country, CountryInterface } from "../models/Country"
 import { CountryDetailInterface } from "../models/CountryDetail"
 
-const BASE_URL: string = "https://restcountries.com/v3.1/all"
-const BASE_FIELDS: string[] = [
+const BASE_URL: string = "https://restcountries.com/v3.1"
+
+const COUNTRY_URL: string = `${BASE_URL}/all`
+const COUNTRY_FIELDS: string[] = [
   "flags",
   "name",
   "cca3",
@@ -10,10 +12,15 @@ const BASE_FIELDS: string[] = [
   "population",
   "languages",
   "capital",
-]
+] as const
 
-const DETAIL_URL: string = "https://restcountries.com/v3.1/alpha"
-const DETAIL_FIELDS: string[] = ["tld", "currencies", "subregion", "borders"]
+const COUNTRY_DETAIL_URL: string = `${BASE_URL}/alpha`
+const COUNTRY_DETAIL_FIELDS: string[] = [
+  "tld",
+  "currencies",
+  "subregion",
+  "borders",
+] as const
 
 class APIError extends Error {
   constructor(message: string) {
@@ -27,28 +34,34 @@ function concatFields(fields: string[]): string {
 }
 
 async function getAllCountries(): Promise<CountryInterface[]> {
-  const fields = concatFields(BASE_FIELDS)
+  const countryFields = concatFields(COUNTRY_FIELDS)
   try {
-    const response = await fetch(`${BASE_URL}?fields=${fields}`)
+    const response = await fetch(`${COUNTRY_URL}?fields=${countryFields}`)
     const data: CountryInterface[] = await response.json()
     return data
   } catch (error) {
-    throw new APIError(`${(error as Error).name} on getAllCountries(): ${(error as Error).message}`)
+    throw new APIError(
+      `${(error as Error).name} on getAllCountries: ${(error as Error).message}`
+    )
   }
 }
 
 async function getCountryDetail(
   country: Country
 ): Promise<CountryDetailInterface> {
+  const countryDetailFields = concatFields(COUNTRY_DETAIL_FIELDS)
   try {
-    const fields = concatFields(DETAIL_FIELDS)
     const response = await fetch(
-      `${DETAIL_URL}/${country.cca3}?fields=${fields}`
+      `${COUNTRY_DETAIL_URL}/${country.getCCA3()}?fields=${countryDetailFields}`
     )
     const data: CountryDetailInterface = await response.json()
     return data
   } catch (error) {
-    throw new APIError(`${(error as Error).name} on getCountryDetail(): ${(error as Error).message}`)
+    throw new APIError(
+      `${(error as Error).name} on getCountryDetail with ${JSON.stringify(
+        country.getCommonName()
+      )}: ${(error as Error).message}`
+    )
   }
 }
 
