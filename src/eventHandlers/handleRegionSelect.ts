@@ -1,6 +1,6 @@
 import countryList from "../models/countryList.js"
 
-function handleRegionSelect(event: Event) {
+function handleRegionSelect(event: Event): void {
   const regionSelect = event.target as HTMLSelectElement
   const selectedRegion = regionSelect.value
 

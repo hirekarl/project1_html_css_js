@@ -10,7 +10,7 @@ import {
   modalInfoContainer,
 } from "../constants/constants.js"
 
-async function handleCountry(event: MouseEvent) {
+async function handleCountry(event: MouseEvent): Promise<void> {
   event.preventDefault()
 
   const countryElement: HTMLElement | null = (

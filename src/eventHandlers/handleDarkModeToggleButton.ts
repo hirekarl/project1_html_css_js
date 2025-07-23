@@ -1,6 +1,6 @@
 import { htmlElement, darkModeToggleButton, darkModeToggleButtonModal } from "../constants/constants.js"
 
-function handleDarkModeToggleButton() {
+function handleDarkModeToggleButton(): void {
   if (htmlElement.dataset.bsTheme === "light") {
     htmlElement.dataset.bsTheme = "dark"
     darkModeToggleButton.innerHTML = '<i class="bi bi-sun-fill"></i> Light Mode'
