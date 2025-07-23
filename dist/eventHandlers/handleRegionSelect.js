@@ -1,7 +1,7 @@
 import countryList from "../models/countryList.js";
 function handleRegionSelect(event) {
     event.preventDefault();
-    event.stopPropagation();
+    // event.stopPropagation()
     const clickedOption = event.target.closest("option");
     if (clickedOption) {
         const selectedRegion = clickedOption.value;
