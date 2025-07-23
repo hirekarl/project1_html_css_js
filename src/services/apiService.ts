@@ -1,5 +1,5 @@
-import { Country, CountryInterface } from "../models/Country"
-import { CountryDetailInterface } from "../models/CountryDetail"
+import { Country, CountryInterface } from "../models/Country.js"
+import { CountryDetailInterface } from "../models/CountryDetail.js"
 
 const BASE_URL: string = "https://restcountries.com/v3.1"
 
