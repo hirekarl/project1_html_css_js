@@ -8,8 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const BASE_URL = "https://restcountries.com/v3.1";
-const COUNTRY_URL = `${BASE_URL}/all`;
-const COUNTRY_FIELDS = [
+const COUNTRIES_URL = `${BASE_URL}/all`;
+const COUNTRIES_FIELDS = [
     "flags",
     "name",
     "cca3",
@@ -36,9 +36,9 @@ function concatFields(fields) {
 }
 function getAllCountries() {
     return __awaiter(this, void 0, void 0, function* () {
-        const countryFields = concatFields(COUNTRY_FIELDS);
+        const countryFields = concatFields(COUNTRIES_FIELDS);
         try {
-            const response = yield fetch(`${COUNTRY_URL}?fields=${countryFields}`);
+            const response = yield fetch(`${COUNTRIES_URL}?fields=${countryFields}`);
             const data = yield response.json();
             return data;
         }

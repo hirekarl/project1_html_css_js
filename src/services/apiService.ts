@@ -3,8 +3,8 @@ import { CountryDetailInterface } from "../models/CountryDetail.js"
 
 const BASE_URL: string = "https://restcountries.com/v3.1"
 
-const COUNTRY_URL: string = `${BASE_URL}/all`
-const COUNTRY_FIELDS: string[] = [
+const COUNTRIES_URL: string = `${BASE_URL}/all`
+const COUNTRIES_FIELDS: string[] = [
   "flags",
   "name",
   "cca3",
@@ -34,9 +34,9 @@ function concatFields(fields: string[]): string {
 }
 
 async function getAllCountries(): Promise<CountryInterface[]> {
-  const countryFields = concatFields(COUNTRY_FIELDS)
+  const countryFields = concatFields(COUNTRIES_FIELDS)
   try {
-    const response = await fetch(`${COUNTRY_URL}?fields=${countryFields}`)
+    const response = await fetch(`${COUNTRIES_URL}?fields=${countryFields}`)
     const data: CountryInterface[] = await response.json()
     return data
   } catch (error) {
