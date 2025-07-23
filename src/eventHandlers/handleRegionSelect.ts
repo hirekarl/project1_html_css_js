@@ -2,7 +2,7 @@ import countryList from "../models/countryList.js"
 
 function handleRegionSelect(event: MouseEvent) {
   event.preventDefault()
-  event.stopPropagation()
+  // event.stopPropagation()
 
   const clickedOption = (event.target as HTMLElement).closest("option")
   if (clickedOption) {
